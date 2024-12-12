@@ -1,0 +1,227 @@
+/* Định dạng cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif; /* Font chữ cho trang */
+    margin: 0; /* Xóa margin mặc định */
+    padding: 0; /* Xóa padding mặc định */
+}
+
+/* CSS cho thanh menu */
+.navbar {
+    display: flex; /* Sử dụng flexbox để căn chỉnh nội dung */
+    justify-content: space-between; /* Tạo khoảng cách giữa các phần tử */
+    background-color: #e4490b; /* Màu nền của thanh menu */
+    padding: 10px; /* Padding cho thanh menu */
+}
+
+.navbar a {
+    color: #fff; /* Màu chữ của liên kết */
+    text-decoration: none; /* Bỏ gạch chân cho liên kết */
+    padding: 14px 20px; /* Padding cho các liên kết */
+    display: block; /* Biến liên kết thành khối */
+}
+
+/* Hiệu ứng hover cho liên kết trong menu */
+.navbar a:hover {
+    border-bottom: 2px solid #ffffff; /* Thêm đường gạch dưới khi hover */
+}
+
+/* CSS cho menu con trong thanh điều hướng */
+.navbar .menu {
+    display: flex; /* Sử dụng flexbox cho menu */
+}
+
+.navbar .menu a {
+    margin-right: 10px; /* Khoảng cách giữa các liên kết */
+}
+
+/* CSS cho slider (trình chiếu hình ảnh) */
+.slider {
+    position: relative; /* Đặt vị trí tương đối cho slider */
+    width: 100%; /* Chiều rộng đầy đủ */
+    overflow: hidden; /* Ẩn các phần tử tràn ra ngoài */
+}
+
+/* Các slide trong slider */
+.slides {
+    display: flex; /* Sử dụng flexbox để xếp các slide */
+    transition: transform 0.5s ease; /* Hiệu ứng chuyển động khi thay đổi slide */
+}
+
+.slide {
+    min-width: 100%; /* Chiều rộng tối thiểu của mỗi slide */
+    box-sizing: border-box; /* Bao gồm padding và border vào chiều rộng */
+}
+
+.slide img {
+    width: 100%; /* Chiều rộng hình ảnh đầy đủ */
+    height: auto; /* Chiều cao tự động */
+}
+
+/* CSS cho phần sản phẩm nổi bật */
+.featured-products {
+    max-width: 1200px; /* Chiều rộng tối đa cho phần sản phẩm */
+    margin: 20px auto; /* Canh giữa phần sản phẩm */
+    padding: 20px; /* Padding cho phần sản phẩm */
+    text-align: center; /* Canh giữa nội dung */
+}
+
+.featured-products h2 {
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    font-size: 24px; /* Kích thước chữ tiêu đề */
+    color: #333; /* Màu chữ tiêu đề */
+}
+
+/* Danh sách sản phẩm */
+.product-list {
+    display: flex; /* Sử dụng flexbox cho danh sách sản phẩm */
+    justify-content: space-between; /* Tạo khoảng cách giữa các sản phẩm */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+}
+
+/* CSS cho từng sản phẩm */
+.product {
+    background-color: #f9f9f9; /* Màu nền cho sản phẩm */
+    border: 1px solid #ddd; /* Viền cho sản phẩm */
+    border-radius: 5px; /* Bo góc cho sản phẩm */
+    padding: 15px; /* Padding cho sản phẩm */
+    text-align: center; /* Canh giữa nội dung sản phẩm */
+    flex: 1; /* Các sản phẩm có chiều rộng bằng nhau */
+}
+
+.product img {
+    width: auto; /* Chiều rộng hình ảnh sản phẩm */
+    height: 200px; /* Chiều cao cố định cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh đầy đủ trong khung */
+    border-radius: 5px; /* Bo góc cho hình ảnh */
+}
+
+.product h3 {
+    font-size: 18px; /* Kích thước chữ cho tên sản phẩm */
+    margin: 10px 0; /* Khoảng cách trên và dưới tiêu đề sản phẩm */
+    color: #333; /* Màu chữ tiêu đề sản phẩm */
+}
+
+.product p {
+    font-size: 16px; /* Kích thước chữ cho mô tả sản phẩm */
+    color: #888; /* Màu chữ cho mô tả sản phẩm */
+}
+
+.product .price {
+    font-size: 20px; /* Kích thước chữ cho giá sản phẩm */
+    color: #fd0303; /* Màu chữ cho giá sản phẩm */
+    margin: 10px 0; /* Khoảng cách trên và dưới giá sản phẩm */
+}
+
+/* Nút thêm vào giỏ hàng */
+.product button {
+    background-color: #1caf02; /* Màu nền của nút */
+    color: #fff; /* Màu chữ của nút */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Bỏ viền cho nút */
+    border-radius: 5px; /* Bo góc cho nút */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+}
+
+/* Hiệu ứng hover cho nút */
+.product button:hover {
+    background-color: #ffa200; /* Màu nền khi hover */
+}
+
+/* CSS cho nút Xem tất cả sản phẩm */
+.view-all {
+    text-align: center; /* Canh giữa nút */
+    margin-top: 40px; /* Khoảng cách trên nút */
+}
+
+/* Nút Xem tất cả sản phẩm */
+.view-all button a {
+    padding: 10px 20px; /* Padding cho nút */
+    background-color: #ff0000; /* Màu nền của nút */
+    color: white; /* Màu chữ của nút */
+    border: none; /* Bỏ viền cho nút */
+    border-radius: 5px; /* Bo góc cho nút */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    text-decoration: none;
+    
+}
+
+.view-all button {
+    padding: 10px 20px; /* Padding cho nút */
+    background-color: #ff0000; /* Màu nền của nút */
+    color: white; /* Màu chữ của nút */
+    border: none; /* Bỏ viền cho nút */
+    border-radius: 5px; /* Bo góc cho nút */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+}
+/* Hiệu ứng hover cho nút Xem tất cả sản phẩm */
+.view-all button:hover {
+    background-color: #fd0606; /* Màu nền khi hover */
+}
+
+/* CSS cho phần giới thiệu về chúng tôi */
+.about-section {
+    background-color: #f1f1f1; /* Màu nền cho phần giới thiệu */
+    padding: 40px; /* Padding cho phần giới thiệu */
+    text-align: center; /* Canh giữa nội dung */
+}
+
+/* Tiêu đề phần giới thiệu */
+.about-section h2 {
+    font-size: 26px; /* Kích thước chữ cho tiêu đề */
+    color: #000000; /* Màu chữ cho tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+/* Mô tả phần giới thiệu */
+.about-section p {
+    font-size: 18px; /* Kích thước chữ cho mô tả */
+    color: #686767; /* Màu chữ cho mô tả */
+    max-width: 800px; /* Chiều rộng tối đa của mô tả */
+    margin: 0 auto; /* Canh giữa mô tả */
+    line-height: 1.6; /* Khoảng cách dòng cho mô tả */
+}
+
+/* Ảnh trong phần giới thiệu */
+.about-section img {
+    margin-top: 20px; /* Khoảng cách trên ảnh */
+    max-width: 100%; /* Chiều rộng tối đa của ảnh */
+    height: auto; /* Chiều cao tự động */
+    border-radius: 10px; /* Bo góc cho ảnh */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho ảnh */
+}
+
+/* CSS cho footer */
+.footer {
+    background-color: #333; /* Màu nền cho footer */
+    color: #fff; /* Màu chữ cho footer */
+    text-align: center; /* Canh giữa nội dung trong footer */
+    padding: 20px 0; /* Padding cho footer */
+    margin-top: 10px; /* Khoảng cách trên footer */
+}
+
+/* Liên kết trong footer */
+.footer a {
+    color: #ff0000; /* Màu đỏ cho các liên kết */
+    text-decoration: none; /* Bỏ gạch chân cho liên kết */
+    margin: 0 5px; /* Khoảng cách giữa các liên kết */
+}
+
+/* Hiệu ứng hover cho liên kết trong footer */
+.footer a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+/* Phân cách giữa phần giới thiệu và footer */
+.about-section {
+    margin-bottom: 20px; /* Khoảng cách giữa phần giới thiệu và footer */
+    padding: 20px; /* Thêm padding nếu cần thiết */
+    background-color: #f9f9f9; /* Có thể thêm màu nền để phân biệt */
+}
+
+/* Thêm padding cho footer */
+.footer {
+    padding: 20px; /* Thêm padding cho footer */
+    background-color: #333; /* Màu nền cho footer */
+    color: white; /* Màu chữ cho footer */
+    text-align: center; /* Canh giữa nội dung trong footer */
+}

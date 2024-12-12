@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Thanh Toán</title>
+    <link rel="stylesheet" href="../css/styleindex.css"> <!-- Liên kết đến file CSS -->
+    <link rel="stylesheet" href="../css/style_gioithieu.css"> <!-- Liên kết đến file CSS riêng cho trang giới thiệu -->
+    <link rel="stylesheet" href="../css/thanh_toan.css">
+</head>
+<body>
+    <!-- Thanh menu -->
+    <nav class="navbar">
+        <div class="logo"><a href="#">Cửa Hàng</a></div>
+        <div class="menu">
+            <a href="../index.html">Trang Chủ</a>
+            <a href="./san_pham.html">Sản Phẩm</a>
+            <a href="./gioi_thieu.html">Giới Thiệu</a>
+            <a href="../page/lien_he.html">Liên Hệ</a>
+            <a href="../page/thanh_toan.html">Thanh Toán</a>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">Thông Tin Thanh Toán</h1>
+            <p class="note">Vui lòng điền thông tin để hoàn tất giao dịch.</p>
+        </header>
+
+        <!-- Form thanh toán -->
+        <form action="process_payment.php" method="POST" class="payment-form">
+            <!-- Họ và tên -->
+            <div class="form-group">
+                <label for="full_name">Họ và tên:</label>
+                <input type="text" name="full_name" id="full_name" class="input-field" required placeholder="Nhập họ và tên..." />
+            </div>
+            
+            <!-- Số điện thoại -->
+            <div class="form-group">
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" name="phone" id="phone" class="input-field" required placeholder="Nhập số điện thoại..." />
+            </div>
+
+            <!-- Địa chỉ -->
+            <div class="form-group">
+                <label for="address">Địa chỉ:</label>
+                <input type="text" name="address" id="address" class="input-field" required placeholder="Nhập địa chỉ giao hàng..." />
+            </div>
+
+            <!-- Tên sản phẩm -->
+            <div class="form-group">
+                <label for="product-name">Tên sản phẩm:</label>
+                <input type="text" name="product-name" id="product-name" class="input-field" required placeholder="Nhập tên sản phẩm..." />
+            </div>
+
+            <!-- Đơn giá -->
+            <div class="form-group">
+                <label for="amount">Đơn giá (VNĐ):</label>
+                <input type="text" name="amount" id="amount" class="input-field" required placeholder="Nhập giá sản phẩm..." />
+            </div>
+
+            <!-- Số lượng sản phẩm -->
+            <div class="form-group">
+                <label for="quantity">Số lượng:</label>
+                <input type="number" name="quantity" id="quantity" class="input-field" required min="1" value="1" oninput="calculateTotal()" />
+            </div>
+
+            <!-- Tổng tiền -->
+            <div class="form-group">
+                <label for="total">Tổng tiền (VNĐ):</label>
+                <input type="text" name="total" id="total" class="input-field" readonly />
+            </div>
+
+            <!-- Phương thức thanh toán -->
+            <div class="form-group">
+                <label for="payment_method">Chọn phương thức thanh toán:</label>
+                <select name="payment_method" id="payment_method" class="input-field" required>
+                    <option value="momo">Thanh toán qua Momo</option>
+                    <option value="internet_banking">Thanh toán qua Internet Banking</option>
+                    <option value="cod">Thanh toán khi nhận hàng</option>
+                </select>
+            </div>
+
+            <!-- Nút thanh toán -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Thanh Toán</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Công ty Thanh Toán. Tất cả các quyền được bảo vệ.</p>
+            <ul class="footer-links">
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Điều khoản sử dụng</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+
+        // Hàm tính toán tổng tiền khi thay đổi số lượng
+        function calculateTotal() {
+            const quantity = document.getElementById('quantity').value;
+            const price = document.getElementById('amount').value.replace(/\D/g, ''); // Loại bỏ ký tự không phải số
+
+            if (quantity && price) {
+                const total = parseInt(quantity) * parseInt(price);
+                document.getElementById('total').value = total.toLocaleString() + ' VNĐ';
+            }
+        }
+
+
+    </script>
+</body>
+</html>

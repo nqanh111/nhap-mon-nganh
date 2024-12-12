@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Thanh Toán</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .amount-input {
+            font-size: 18px;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .amount {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #qrcode {
+            margin: 20px auto;
+            display: block;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">Trang Thanh Toán</h1>
+        <p class="amount">Số tiền cần trả: <span id="total-amount">0 VNĐ</span></p>
+
+        <!-- Ô nhập liệu cho số tiền -->
+        <input type="number" id="amount-input" class="amount-input" placeholder="Nhập số tiền cần trả..." />
+
+        <!-- Mã QR sẽ được hiển thị ở đây -->
+        <div id="qrcode"></div>
+
+        <p class="footer">Scan mã QR để thanh toán qua ứng dụng của bạn.</p>
+    </div>
+
+    <script>
+        // Hàm tạo mã QR
+        function generateQRCode(amount) {
+            const paymentData = `Thanh toán ${amount} VNĐ`;
+
+            // Xóa mã QR cũ trước khi tạo mã QR mới
+            document.getElementById("qrcode").innerHTML = '';
+
+            // Tạo mã QR
+            const qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: paymentData,
+                width: 128,
+                height: 128,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.L
+            });
+        }
+
+        // Lắng nghe sự thay đổi từ ô nhập liệu
+        document.getElementById("amount-input").addEventListener("input", function() {
+            const amount = parseInt(this.value) || 0;  // Lấy số tiền nhập vào, nếu không hợp lệ thì mặc định là 0
+            document.getElementById("total-amount").textContent = amount.toLocaleString() + ' VNĐ';
+            generateQRCode(amount);
+        });
+    </script>
+
+</body>
+</html>
